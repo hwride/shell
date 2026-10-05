@@ -1,14 +1,14 @@
 For testing shell, command-line, and terminal-related things.
 
 ## Terminals, Shells, and Consoles
-- A **terminal** is an interface for sending text input to a computer and displaying its text output. Historically, terminals were physical devices connected to another computer.
+- A **terminal** is a user-facing endpoint for an interactive, character-based communication session. Historically, this was a hardware device separate from the computer it communicated with.
+  - A **terminal emulator** is user-facing software that imitates the behaviour of a physical terminal, such as a VT100. macOS Terminal.app, iTerm2, and Windows Terminal are examples. It handles the keyboard and display, and interprets terminal-control instructions such as `Ctrl-C`, cursor movement, colours, and screen clearing.
+    - On Unix/POSIX systems, a terminal emulator usually communicates with a shell through a **pseudo-terminal (PTY)**. The terminal emulator connects to the PTY's master side, while the shell connects to its slave side, such as `/dev/pts/0`. The PTY is the kernel-level interface that makes the shell see a terminal rather than an ordinary pipe, enabling interactive features such as job control, `Ctrl-C`, terminal sizing, and full-screen programs. Non-interactive shell scripts can use ordinary files or pipes instead.
+    - On Windows, the analogous interface is called a **pseudoconsole (ConPTY)**.
+  - Linux also provides **virtual consoles**, such as `/dev/tty1`. These are kernel-managed local text consoles, not PTYs.
+  - **Virtual terminal** is an ambiguous umbrella term sometimes used for a terminal emulator, a PTY, or a virtual console. When possible, use the more specific term.
 - A **console** traditionally means the computer’s primary, directly attached terminal. In modern usage, “console” and “terminal” are often used interchangeably.
-- A **shell** is an interpreter for a command language. It reads input from a terminal, parses the command language, including control-flow syntax such as `if`, `then`, and `fi`, expands things such as variables and wildcards, runs built-in commands such as `cd`, `export`, and `alias`, starts external programs such as `cat`, `ls`, `grep`, and `git`, and connects programs using pipes and redirections. Examples include `sh`, Bash, Zsh, and Fish.
-A **terminal emulator** is software that imitates the behavior of a physical terminal, such as a VT100. macOS Terminal.app, iTerm2, and Windows Terminal are examples. A terminal emulator usually creates or connects to a virtual terminal. In addition to accepting running a shell which it sends input to and displays output from, it will also emulate behaviour of physical terminals such as keyboard shortcuts liek `Ctrl-C`, cursor movement, colours, full-screen programs, etc.
-- A **virtual terminal** is a software-provided terminal interface rather than a physical terminal device. This is a broad term, not one specific mechanism.
-  - On Unix/POSIX systems, terminal emulators usually communicate with shells through **pseudo-terminals (PTYs)**, such as `/dev/pts/0`. Used by Terminal.app, iTerm2, SSH.
-  - Linux also provides **virtual consoles**, such as `/dev/tty1`. These are virtual terminals, but they are not PTYs.
-  - Windows provides an analogous interface called a **pseudoconsole (ConPTY)**.
+- A **shell** is an interpreter for a command language. It reads input, parses that as a command language, including control-flow syntax such as `if`, `then`, and `fi`, expands things such as variables and wildcards, runs built-in commands such as `cd`, `export`, and `alias`, starts external programs such as `cat`, `ls`, `grep`, and `git`, and connects programs using pipes and redirections. Examples include `sh`, Bash, Zsh, and Fish. When you interact with a command line interface you will normally be sending commands to the shell on `stdin` and receiving output back on `stdout` and `stderr`. A shell is just a program, you can run it and send commands to it without a terminal e.g. with `sh my-script.sh` or `sh -c 'printf "%s\n" "hello"'`.
 - A **command line** is a text-based way to interact with a computer by entering commands. On Linux, this typically means entering shell commands in a terminal; on Windows, it may mean entering PowerShell or Command Prompt commands in a terminal.
 
 ## Shells
@@ -29,9 +29,9 @@ POSIX is a standard, not a program. For example, `cat` and `ls` are POSIX utilit
 
 A shell implementation is a program that implements a shell language. POSIX defines a portable shell language, while individual shells provide that language plus their own extensions.
 
-| Shell | POSIX relationship | Examples of extensions or differences |
-| --- | --- | --- |
-| `sh` | The standard POSIX shell interface; the implementation varies between systems | Portable scripts should use only POSIX syntax and commands |
-| Bash | Implements POSIX shell features and adds many extensions | `[[ ... ]]`, `(( ... ))`, indexed and associative arrays, `source`, `local`, `declare`, `mapfile`, process substitution, here-strings, `shopt`, `pipefail`, `select`, and `coproc` |
-| Zsh | Supports much of the POSIX shell language and adds its own features | `[[ ... ]]`, `(( ... ))`, arrays, `setopt`, `unsetopt`, `autoload`, `typeset`, extended and recursive globbing, parameter-expansion flags, process substitution, ZLE, and advanced interactive completion |
-| Fish | Uses a different command language and is not POSIX-compatible | Its own syntax, scripting features, and interactive experience |
+| Shell | POSIX relationship                                                            | Examples of extensions or differences                                                                                                                                                                     |
+|-------|-------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `sh`  | The standard POSIX shell interface; the implementation varies between systems | Portable scripts should use only POSIX syntax and commands. See examples under [/sh](./sh).                                                                                                               |
+| Bash  | Implements POSIX shell features and adds many extensions                      | `[[ ... ]]`, `(( ... ))`, indexed and associative arrays, `source`, `local`, `declare`, `mapfile`, process substitution, here-strings, `shopt`, `pipefail`, `select`, and `coproc`                        |
+| Zsh   | Supports much of the POSIX shell language and adds its own features           | `[[ ... ]]`, `(( ... ))`, arrays, `setopt`, `unsetopt`, `autoload`, `typeset`, extended and recursive globbing, parameter-expansion flags, process substitution, ZLE, and advanced interactive completion |
+| Fish  | Uses a different command language and is not POSIX-compatible                 | Its own syntax, scripting features, and interactive experience                                                                                                                                            |
