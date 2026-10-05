@@ -18,6 +18,11 @@ You can run shell command language commands in a few ways:
 - Pass shell commands directly to `sh`: `sh -c 'echo "Hello World"'`
 - Run an executable script directly: `./my-script.sh`. Note to execute a script directly you must ensure your script is executable, with for e.g. `chmod +x my-script.sh`
 
+### Current shell
+Scripts run with `sh` or `./` run in a new shell process, this means any variables set in those scripts will not be set in the parent shell/CLI. To run a script in the current shell use `. ./my-script.sh` in POSIX (or `source ./my-script.sh` in bash).
+
 ### Hashbang/she-bang
 `#!` is a shebang, e.g. `#!/bin/sh`. It tells the system which interpreter to use when the script is run directly, meaning you don't need to invoke the shell yourself. See e.g. [hashbang.sh](./hashbang.sh).
 
+## Variables
+See [variables.sh](./variables.sh).
