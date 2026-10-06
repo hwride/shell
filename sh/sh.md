@@ -54,4 +54,20 @@ while condition; do command; done
 ```
 
 ### Conditions and test
+See [conditions.sh](./conditions.sh).
+
+```shell
+if expression; then expression; fi
+
+if expression; then expression; else expression; fi
+
+if expression then 
+  expression
+elif expression then
+  expression
+else
+  expression
+fi
+```
+
 Note you won't find `[ expression ]` in the [POSIX Shell Command Language Grammar](https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap02.html#tag_19_10). This is because `[ expression ]` is actually invoking the [POSIX test command](https://pubs.opengroup.org/onlinepubs/9799919799/utilities/test.html) so isn't part of shell command language grammar.
