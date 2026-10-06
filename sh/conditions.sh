@@ -58,3 +58,25 @@ test -x "conditions.sh" && echo 'conditions.sh is an executable file'
 
 # ! negates an expression
 [ ! -f "xyz" ] && echo 'xyz is not a file'
+
+# case
+S='bye'
+case $S in
+	hello)
+		echo "case: hello"
+		;;
+	bye)
+		echo "case: bye"
+		;;
+	*)
+		echo "case: default"
+		;;
+esac
+
+# case - default
+S='123'
+case $S in
+	hello) echo "case: hello" ;;
+	bye) echo "case: bye" ;;
+	*) echo "case: default"; echo 'case: default - second echo' ;;
+esac

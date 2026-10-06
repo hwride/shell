@@ -68,6 +68,12 @@ elif expression then
 else
   expression
 fi
+
+case WORD in
+  pattern1) expression ;;
+  pattern2) expression ;;
+  *) expression ;;
+esac
 ```
 
 Note you won't find `[ expression ]` in the [POSIX Shell Command Language Grammar](https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap02.html#tag_19_10). This is because `[ expression ]` is actually invoking the [POSIX test command](https://pubs.opengroup.org/onlinepubs/9799919799/utilities/test.html) so isn't part of shell command language grammar.
