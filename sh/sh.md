@@ -4,7 +4,7 @@ The `sh` utility (see [POSIX sh utility specification](https://pubs.opengroup.or
 ## Resources
 - https://www.grymoire.com/Unix/Sh.html
 - https://www.shellscript.sh
-
+- [POSIX Shell Command Language - Shell Grammar](https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap02.html#tag_19_10)
 
 ## Script files
 You can create script files which can be run by `sh`. A script is a text file containing shell command language commands. 
@@ -24,5 +24,34 @@ Scripts run with `sh` or `./` run in a new shell process, this means any variabl
 ### Hashbang/she-bang
 `#!` is a shebang, e.g. `#!/bin/sh`. It tells the system which interpreter to use when the script is run directly, meaning you don't need to invoke the shell yourself. See e.g. [hashbang.sh](./hashbang.sh).
 
+## Separators - newlines and semi-colons
+Shell command language requires parts of commands to be separated by separators, which can be newlines or semi-colons. You tend to use newlines for scripts, and `;` if writing one-liners.
+
+For example here separators are indicated by `;` and could be `;` or newlines:
+```shell
+for name; do command; done
+for name in wordlist; do command; done
+while condition; do command; done
+```
+
 ## Variables
 See [variables.sh](./variables.sh).
+
+```shell
+MY_VAR=value
+```
+
+## Escape characters
+See [escape-chars.sh](./escape-chars.sh).
+
+## Loops
+See [loops.sh](./loops.sh).
+
+```shell
+for name; do command; done
+for name in wordlist; do command; done
+while condition; do command; done
+```
+
+### Conditions and test
+Note you won't find `[ expression ]` in the [POSIX Shell Command Language Grammar](https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap02.html#tag_19_10). This is because `[ expression ]` is actually invoking the [POSIX test command](https://pubs.opengroup.org/onlinepubs/9799919799/utilities/test.html) so isn't part of shell command language grammar.
