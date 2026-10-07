@@ -91,3 +91,6 @@ See [special-parameters.sh](./special-parameters.sh).
 - `"$*"`: All positional parameters combined into one argument.
 - `$$`: The process ID of the current shell.
 - `$!`: The process ID of the most recent background command.
+
+## Command substitution
+See [command-substituion.sh](command-substitution.sh).
