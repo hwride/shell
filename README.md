@@ -14,14 +14,14 @@ For testing shell, command-line, and terminal-related things.
 ## Shells
 
 ### POSIX
-POSIX is a standard for the interface an OS provides to programs and users. It is wide-ranging, covering shell languages and built-ins, standard command-line utilities, system APIs, file systems, processes, regular expressions, environment variables, and more.
+[POSIX](https://pubs.opengroup.org/onlinepubs/9799919799/basedefs/V1_chap01.html) is a standard for the interface an OS provides to programs and users. It is wide-ranging, covering shell languages and built-ins, standard command-line utilities, system APIs, file systems, processes, regular expressions, environment variables, and more.
 
 The POSIX pieces most relevant here are:
 
-- **POSIX shell language:** syntax such as `if`, `then`, `else`, `elif`, `fi`, `for`, `while`, `until`, `case`, `esac`, loops, quoting, variables, functions, command substitution, pipes, redirections, `&&`, and `||`.
-- **POSIX shell built-ins:** commands such as `cd`, `pwd`, `export`, `read`, `set`, `unset`, `alias`, `command`, `exec`, `eval`, `trap`, `shift`, `exit`, and `wait`.
-- **POSIX utilities:** external commands such as `ls`, `cat`, `grep`, `find`, `cp`, `mv`, `rm`, `mkdir`, `touch`, `chmod`, `head`, `tail`, `sort`, `uniq`, `wc`, `cut`, `tr`, `sed`, `awk`, `xargs`, `diff`, `du`, `df`, `ps`, and `kill`, roughly in order of everyday usefulness.
-- **POSIX system interfaces:** APIs that programs use to interact with the operating system, such as `open`, `close`, `read`, `write`, `stat`, `chmod`, `mkdir`, `unlink`, `rename`, `chdir`, `getcwd`, `fork`, `exec`, `pipe`, `dup2`, `wait`, `kill`, and `pthread_create`.
+- [**POSIX shell language**](https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap02.html): syntax such as `if`, `then`, `else`, `elif`, `fi`, `for`, `while`, `until`, `case`, `esac`, loops, quoting, variables, functions, command substitution, pipes, redirections, `&&`, and `||`.
+- [**POSIX shell built-ins**](https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap02.html#tag_18_15): commands such as `cd`, `pwd`, `export`, `read`, `set`, `unset`, `alias`, `command`, `exec`, `eval`, `trap`, `shift`, `exit`, and `wait`.
+- [**POSIX utilities**](https://pubs.opengroup.org/onlinepubs/9799919799/utilities/contents.html): external commands such as `ls`, `cat`, `grep`, `find`, `cp`, `mv`, `rm`, `mkdir`, `touch`, `chmod`, `head`, `tail`, `sort`, `uniq`, `wc`, `cut`, `tr`, `sed`, `awk`, `xargs`, `diff`, `du`, `df`, `ps`, and `kill`, roughly in order of everyday usefulness.
+- [**POSIX system interfaces**](https://pubs.opengroup.org/onlinepubs/9799919799/functions/V2_chap01.html): APIs that programs use to interact with the operating system, such as `open`, `close`, `read`, `write`, `stat`, `chmod`, `mkdir`, `unlink`, `rename`, `chdir`, `getcwd`, `fork`, `exec`, `pipe`, `dup2`, `wait`, `kill`, and `pthread_create`.
 
 POSIX is a standard, not a program. For example, `cat` and `ls` are POSIX utility names, while GNU Coreutils and macOS's BSD-derived utilities are different implementations of many of those utilities.
 
