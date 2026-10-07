@@ -42,6 +42,16 @@ touch "demo_nested_$VAR_A_file" # This just returns as it tries to lookup the va
 touch "demo_nested_${VAR_A}_file" # This looks up the variable VAR_A, then joins that with the rest of the string.
 echo ''
 
+# You can default a variable with {:-}
+echo "Default val: ${VAR_MISSING:-"default"}"
+echo "Default val: ${VAR_MISSING:-"$(date)"}" # With expression
+echo "Default val: ${VAR_MISSING:-"whoami:$(whoami)"}" # With string + expression
+
+# You can default and set a variable to that default with {:=}
+echo "Default val: ${VAR_MISSING:="now set"}"
+echo "Default val: ${VAR_MISSING:="set again?"}"
+echo ''
+
 # You can set a variable from the CLI with read
 echo What is your name?
 read MY_NAME
