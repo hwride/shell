@@ -93,4 +93,7 @@ See [special-parameters.sh](./special-parameters.sh).
 - `$!`: The process ID of the most recent background command.
 
 ## Command substitution
-See [command-substituion.sh](command-substitution.sh).
+See [command-substitution.sh](./command-substitution.sh).
+
+## Functions
+See [functions.sh](functions.sh).
