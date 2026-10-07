@@ -2,9 +2,11 @@
 The `sh` utility (see [POSIX sh utility specification](https://pubs.opengroup.org/onlinepubs/9799919799/utilities/sh.html)) is a command language interpreter that executes [POSIX Shell Command Language](https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap02.html#tag_19) commands. It reads input from a command line string, the standard input, or a specified file.
 
 ## Resources
-- https://www.grymoire.com/Unix/Sh.html
-- https://www.shellscript.sh
+- [POSIX sh utility specification](https://pubs.opengroup.org/onlinepubs/9799919799/utilities/sh.html)
+- [POSIX Shell Command Language](https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap02.html#tag_19)
 - [POSIX Shell Command Language - Shell Grammar](https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap02.html#tag_19_10)
+- https://www.shellscript.sh
+- https://www.grymoire.com/Unix/Sh.html
 
 ## Script files
 You can create script files which can be run by `sh`. A script is a text file containing shell command language commands. 
@@ -77,3 +79,15 @@ esac
 ```
 
 Note you won't find `[ expression ]` in the [POSIX Shell Command Language Grammar](https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap02.html#tag_19_10). This is because `[ expression ]` is actually invoking the [POSIX test command](https://pubs.opengroup.org/onlinepubs/9799919799/utilities/test.html) so isn't part of shell command language grammar.
+
+## Special parameters
+See [special-parameters.sh](./special-parameters.sh).
+
+- `$?`: The exit status of the most recent pipeline.
+- `$0`: The name used to invoke the shell or script.
+- `$1`, `$2`, ...: Positional parameters passed to the script.
+- `$#`: The number of positional parameters.
+- `"$@"`: All positional parameters, preserving them as separate arguments.
+- `"$*"`: All positional parameters combined into one argument.
+- `$$`: The process ID of the current shell.
+- `$!`: The process ID of the most recent background command.
