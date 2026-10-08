@@ -71,3 +71,10 @@ echo "is_a: status=$?"
 
 is_a 'a'
 echo "is_a 'a': status=$?"
+
+# Functions can output arbitrary values, including values containing spaces.
+get_file_name() {
+  printf '%s\n' 'file name with spaces.txt'
+}
+FILE_NAME=$(get_file_name)
+echo "get_file_name returned: $FILE_NAME"
