@@ -80,3 +80,32 @@ case $S in
 	bye) echo "case: bye" ;;
 	*) echo "case: default"; echo 'case: default - second echo' ;;
 esac
+
+# test command examples
+
+# Numeric comparisons
+[ 1 -eq 1 ] && echo '[ 1 -eq 1 ] is true' # checks if numbers are equal
+[ 1 -ne 2 ] && echo '[ 1 -ne 2 ] is true' # checks if numbers are not equal
+[ 1 -lt 2 ] && echo '[ 1 -lt 2 ] is true' # checks if the first number is less than the second
+[ 1 -le 1 ] && echo '[ 1 -le 1 ] is true' # checks if the first number is less than or equal to the second
+[ 2 -gt 1 ] && echo '[ 2 -gt 1 ] is true' # checks if the first number is greater than the second
+[ 2 -ge 2 ] && echo '[ 2 -ge 2 ] is true' # checks if the first number is greater than or equal to the second
+
+# String comparisons and length
+[ 'hello' = 'hello' ] && echo "[ 'hello' = 'hello' ] is true" # checks if strings are equal
+[ 'hello' != 'goodbye' ] && echo "[ 'hello' != 'goodbye' ] is true" # checks if strings are not equal
+[ -z '' ] && echo "[ -z '' ] is true" # checks if a string has zero length
+[ -n 'hello' ] && echo "[ -n 'hello' ] is true" # checks if a string has non-zero length
+
+# File type, access, and size. $0 is the path used to invoke this script.
+[ -e "$0" ] && echo '[ -e "$0" ] is true' # checks if a path exists
+[ ! -e './file-that-does-not-exist' ] && echo "[ ! -e './file-that-does-not-exist' ] is true" # checks if a path does not exist
+[ -f "$0" ] && echo '[ -f "$0" ] is true' # checks if a path is a regular file
+[ -d '.' ] && echo "[ -d '.' ] is true" # checks if a path is a directory
+[ -r "$0" ] && echo '[ -r "$0" ] is true' # checks if a path is readable
+[ -w '.' ] && echo "[ -w '.' ] is true" # checks if a path is writable
+[ -x '/bin/sh' ] && echo "[ -x '/bin/sh' ] is true" # checks if a path is executable
+[ -s "$0" ] && echo '[ -s "$0" ] is true' # checks if a file has a size greater than zero
+
+# File timestamp comparison
+[ "$0" -nt '/etc/hosts' ] && echo '[ "$0" -nt "/etc/hosts" ] is true' || echo '[ "$0" -nt "/etc/hosts" ] is false' # checks if $0 is newer than /etc/hosts
