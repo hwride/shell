@@ -55,6 +55,15 @@ for name in wordlist; do command; done
 while condition; do command; done
 ```
 
+## Pattern matching
+See [pattern-matching.sh](./pattern-matching.sh).
+
+Pattern matching notation matches strings against patterns such as `*`, `?`, and `[0-9]`. In POSIX `sh`, it is used directly by `case` and parameter expansion such as `${file%.*}`. POSIX utilities such as `find -name` also use it.
+
+Pathname expansion uses these patterns to expand unquoted words into matching pathnames. In POSIX `sh`, this can occur in a word list such as `for file in *md` or a command such as `echo *.md`.
+
+Bash's extended `[[ ... ]]` conditional construct also supports pattern matching, but is not POSIX. POSIX `[ ... ]` is the `test` command and does not use pattern matching for its `=` comparison.
+
 ### Conditions and test
 See [conditions.sh](./conditions.sh).
 
