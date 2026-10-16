@@ -63,6 +63,9 @@ ls -l | grep sh | awk '{printf "%-20s - file size: %5d bytes\n", $9, $5}'
 # Translate characters #
 ########################
 # tr = translate, delete, or squeeze characters
-echo 'hello' | tr '[:lower:]' '[:upper:]' # Convert lowercase to uppercase
-echo 'hello   world' | tr -s ' '          # Squeeze repeated spaces
-tr -d '\r' < file.txt                     # Delete carriage returns
+tr '[:lower:]' '[:upper:]' < test-dir/test.md  # Convert lowercase to uppercase
+tr ',' '\t' < test-dir/test.csv                # Translate commas to tabs
+tr -s ' ' < test-dir/test.md                   # Squeeze repeated spaces
+tr -d '[:digit:]' < test-dir/test.csv          # Delete digits
+tr -cd '[:digit:]' < test-dir/test.csv         # Keep only digits
+tr -cd '[:digit:]\n' < test-dir/test.csv       # Keep only digits and newlines
