@@ -38,3 +38,17 @@ rg --files -g '*.md' -g '!sh/**' .
 # Find a file excluding multiple directories
 find . \( -path './sh' -o -path './test-dir' \) -prune -o -name '*.md' -print
 rg --files -g '*.md' -g '!sh/**' -g '!test-dir/**' .
+
+###################
+# Extract columns #
+###################
+# -F = delimiter
+awk -F',' '{print $1}' test-dir/test.csv          # Column 1
+awk -F',' '{print $1, $2}' test-dir/test.csv      # Column 1 and 2
+# Skip header. NR > 1 = only run when record number > 1
+awk -F',' 'NR > 1 {print $3}' test-dir/test.csv
+
+ # Print the filename then filesize of .sh files in a dir.
+ls -l | grep sh | awk '{print $9, "- file size:", $5, "bytes"}'
+# With field padding. % = pad and right align value, %- = pad and left align value
+ls -l | grep sh | awk '{printf "%-20s - file size: %5d bytes\n", $9, $5}'
