@@ -1,3 +1,9 @@
+##################
+# Copy and paste #
+##################
+pbpaste                 # Write clipboard contents to stdout
+echo 'hello' | pbcopy   # Read stdin and copy it to the clipboard
+
 ######################
 ## Find and replace ##
 ######################
@@ -52,3 +58,11 @@ awk -F',' 'NR > 1 {print $3}' test-dir/test.csv
 ls -l | grep sh | awk '{print $9, "- file size:", $5, "bytes"}'
 # With field padding. % = pad and right align value, %- = pad and left align value
 ls -l | grep sh | awk '{printf "%-20s - file size: %5d bytes\n", $9, $5}'
+
+########################
+# Translate characters #
+########################
+# tr = translate, delete, or squeeze characters
+echo 'hello' | tr '[:lower:]' '[:upper:]' # Convert lowercase to uppercase
+echo 'hello   world' | tr -s ' '          # Squeeze repeated spaces
+tr -d '\r' < file.txt                     # Delete carriage returns
