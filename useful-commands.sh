@@ -24,6 +24,9 @@ rg testing
 rg testing PATH
 rg 'command testing'
 
+# word boundary
+rg '\bcommand'
+
 # Search in all files in the current directory
 rg --max-depth=1 string1
 rg -d=1 string1
