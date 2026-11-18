@@ -36,6 +36,7 @@ rg --no-line-number --no-filename --no-heading 'command testing'
 
 # word boundary
 rg '\bcommand'
+rg -w 'command'
 
 # Search in all files in the current directory
 rg --max-depth=1 string1
