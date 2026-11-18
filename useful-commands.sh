@@ -24,6 +24,16 @@ rg testing
 rg testing PATH
 rg 'command testing'
 
+# Print only matching text, not the rest of the line --only-matching / -o
+rg -o 'command testing'
+
+# --no-line-number / -N
+# --no-filename    / -I
+# --no-heading     / -H  # Print filename on the same line as result and remove blank line between results
+
+# Combine these for only matching text lines
+rg --no-line-number --no-filename --no-heading 'command testing'
+
 # word boundary
 rg '\bcommand'
 
