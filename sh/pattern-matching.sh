@@ -1,6 +1,7 @@
 #!/bin/sh
 
-printf '%-53s # %s\n' 'Suffix removal : ${VAR%suffix_match}'                                      'Parameter expansion can use pattern matching to replace part of variables.'
+echo '# Parameter expansion can use pattern matching to replace part of variables.'
+echo 'Suffix removal : ${VAR%suffix_match}'
 echo 'Prefix removal : ${VAR#prefix_match}'
 FILE='123-a-b/c/backup.md'
 echo ''
@@ -17,6 +18,7 @@ printf '%-20s : %-30s # %s\n' '${FILE%??}'         "${FILE%??}"                 
 printf '%-20s : %-30s # %s\n' '${FILE%m??}'        "${FILE%m??}"                  '? matches a single character exactly, so this does not match'
 printf '%-20s : %-30s # %s\n' '${FILE%[abcd]}'     "${FILE%[abcd]}"               '? matches any character in the []'
 printf '%-20s : %-30s # %s\n' '${FILE%[a-z]}'      "${FILE%[a-z]}"                'Character range, also works with numbers'
+printf '%-20s : %-30s # %s\n' '${FILE%[!0-9]}'     "${FILE%[!0-9]}"                'Matches any character not in the range 0-9'
 printf '%-20s : %-30s # %s\n' '${FILE%-*}'         "${FILE%-*}"                   'Single % removes the shortest matching suffix'
 printf '%-20s : %-30s # %s\n' '${FILE%%-*}'        "${FILE%%-*}"                  'Double %% removes the longest matching suffix'
 printf '%-20s : %-30s # %s\n' '${FILE#*/}'         "${FILE#*/}"                   'Single # removes the shortest matching prefix'
@@ -28,6 +30,15 @@ FILE='test.md'
 case "$FILE" in *.md)
   echo "$FILE matches *.md"
   ;;
+esac
+echo ''
+
+echo '# Alternation matches one of several patterns'
+VALUE='yes'
+case "$VALUE" in
+  yes|no)
+    echo "$VALUE is either yes or no"
+    ;;
 esac
 echo ''
 
